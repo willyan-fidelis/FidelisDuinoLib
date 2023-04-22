@@ -32,7 +32,8 @@ C:\arduino_portable\arduino_esp8266\portable\sketchbook\libraries\FidelisDuino
 #include <iostream>
 #include <string>
 /*Exemples:*/
-#include "GeneralExemple.h"
+//#include "GeneralExemple.h"
+#include "QueueExemple.h"
 #include <functional>
 #include <thread>
 

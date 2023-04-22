@@ -160,6 +160,8 @@
     <ClInclude Include="FidelisDuino_Util_StringFormat.h" />
     <ClInclude Include="GeneralExemple.h" />
     <ClInclude Include="Logger.h" />
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="QueueExemple.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

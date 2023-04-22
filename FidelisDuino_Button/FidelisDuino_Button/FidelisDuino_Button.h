@@ -14,7 +14,7 @@ namespace FidelisDuino {
 		class PushButton {
 		private:
 			FidelisDuino::IO::Input::InputStateMachine button;
-			//Alem do 'InputStateMachine' devemos criar mais alguns estados não contemplados na classe:
+			//Alem do 'InputStateMachine' devemos criar mais alguns estados nï¿½o contemplados na classe:
 			bool _AterReleasedEdge = false; //Depois de 'OnReleasedEdge' (ao apertar o btn) vem esse evento.
 			bool _AterPressedEdge = false; //Depois de 'OnPressedEdge' (ao soltar o btn) vem esse evento.
 		public:
@@ -63,14 +63,14 @@ namespace FidelisDuino {
 			PushButton PageClick;
 			int ProbableNextMenu = 0;
 			int ProbableNextPage = 0;
-			int ActualMenu = 1; //Zero é considerado sem seleção
-			int ActualPage = 0; //Zero é considerado sem seleção
+			int ActualMenu = 1; //Zero ï¿½ considerado sem seleï¿½ï¿½o
+			int ActualPage = 0; //Zero ï¿½ considerado sem seleï¿½ï¿½o
 			bool OnMenuChanged = false;
 			bool OnPageChanged = false;
 
 			bool ForceLoadPage = false;
 
-			bool IgnoreMenuReleased = false; //Ignora confirmação de Seleção de Menu
+			bool IgnoreMenuReleased = false; //Ignora confirmaï¿½ï¿½o de Seleï¿½ï¿½o de Menu
 		public:
 			DoubleChoicePushButtonMenu() {
 				
@@ -113,9 +113,9 @@ namespace FidelisDuino {
 
 						/*
 						Depois de entrar na pagina o tempo continua contando e dispara um evento 'falso' de troca de menu,
-						afinal o click do menu é mais longo e sempre vem depois..
-						Nesses cassos 'ProbableNextMenu' é igual a zero, fazendo com que o 'ActualMenu' seja tbem zero.
-						Por isso devemos validar se 'ActualMenu = 0' é igual a zero e tratar isso, mas sem disparar o evento
+						afinal o click do menu ï¿½ mais longo e sempre vem depois..
+						Nesses cassos 'ProbableNextMenu' ï¿½ igual a zero, fazendo com que o 'ActualMenu' seja tbem zero.
+						Por isso devemos validar se 'ActualMenu = 0' ï¿½ igual a zero e tratar isso, mas sem disparar o evento
 						de troca de menu '_OnGoInMenu' :
 						*/
 						if (ActualMenu == 0) { ActualMenu = 1; }
@@ -126,7 +126,7 @@ namespace FidelisDuino {
 				if (PageClick.AterPressedEdge() && !MenuClick.AterPressedEdge())
 				{
 					ProbableNextPage = ProbableNextPage + 1;
-					IgnoreMenuReleased = true; //Se estamos selecionando uma pagina, então ignoramos a possivel confirmção de Menu futura.
+					IgnoreMenuReleased = true; //Se estamos selecionando uma pagina, entï¿½o ignoramos a possivel confirmï¿½ï¿½o de Menu futura.
 				}
 				//Confirmando pagina:
 				if (PageClick.OnReleasedEdge())
@@ -143,7 +143,7 @@ namespace FidelisDuino {
 				
 			}
 
-			//Possibilta forçar a troca de pagina manualmente:
+			//Possibilta forï¿½ar a troca de pagina manualmente:
 			void LoadPage(int menu, int page) {
 				ActualMenu = menu;
 				ActualPage = page;
@@ -170,7 +170,7 @@ namespace FidelisDuino {
 		class SingleChoiceToggleButtonMenu {
 		private:
 			int ProbableNextPage = 0;
-			int ActualPage = 0; //Zero é considerado sem seleção
+			int ActualPage = 0; //Zero ï¿½ considerado sem seleï¿½ï¿½o
 			FidelisDuino::IO::Input::InputStateMachine button;
 			FidelisDuino::Timer::TOF ChangingTime;
 			FidelisDuino::EdgeDetection::EdgeDetection TransitionToChanged;
@@ -202,7 +202,7 @@ namespace FidelisDuino {
 					_OnGoInPage(ActualPage,0);
 				}
 			}
-			//Possibilta forçar a troca de pagina manualmente:
+			//Possibilta forï¿½ar a troca de pagina manualmente:
 			void LoadPage(int page) {
 				ActualPage = page;
 				ForceLoadPage = true;

@@ -38,5 +38,11 @@
     <ClInclude Include="Logger.h">
       <Filter>Arquivos de Cabeçalho\src</Filter>
     </ClInclude>
+    <ClInclude Include="Queue.h">
+      <Filter>Arquivos de Cabeçalho\src</Filter>
+    </ClInclude>
+    <ClInclude Include="QueueExemple.h">
+      <Filter>Arquivos de Cabeçalho\Exemples</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
