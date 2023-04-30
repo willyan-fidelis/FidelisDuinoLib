@@ -14,6 +14,7 @@ void setup() {
 void loop() {
 	if (true)
 	{
+
 		input.Loop(3000, 5000, signal,1000);
 
 		//if (input.StTrue()) { Serial.println("StTrue"); }
