@@ -117,7 +117,7 @@ namespace FidelisDuino {
 		//Apneas traduzido de https://github.com/willyan-fidelis/PLC-QUEUE/blob/main/EL_QUEUE.scl
 		//Essa classe n�o foi usada e testada ainda.
 		private:
-			int ParMaxQueueSize = false;
+			int ParMaxQueueSize = 0;
 		public:
 			bool CmdAdd = false;
 			bool CmdRemove = false;
