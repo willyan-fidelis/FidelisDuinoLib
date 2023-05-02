@@ -55,6 +55,7 @@ namespace FidelisDuino {
 					{
 						_controlData.StRemovePosition = 0;
 					}
+					return true;
 				}
 				else
 				{
@@ -84,6 +85,7 @@ namespace FidelisDuino {
 					{
 						_controlData.StAddPosition = 0;
 					}
+					return true;
 				}
 				else
 				{

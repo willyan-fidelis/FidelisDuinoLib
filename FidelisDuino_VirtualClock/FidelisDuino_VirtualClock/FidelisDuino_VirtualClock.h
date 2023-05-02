@@ -1,5 +1,11 @@
 #pragma once
 
+#if defined( ___DEBUG_ON___ )
+#include "..\..\FidelisDuino_EdgeDetection.h"
+#else
+//nothing here yet
+#endif
+
 namespace FidelisDuino {
 	namespace VirtualClock{
 		class VirtualClock {
@@ -9,6 +15,7 @@ namespace FidelisDuino {
 			unsigned long _lastScan = 0;
 			unsigned long _actualScan = 0;
 			unsigned long _accMillis = 0;
+			FidelisDuino::EdgeDetection::EdgeDetection _ChangedToNewDay;//Novo dia detectado.
 
 			unsigned long longDelta(unsigned long& lastScan, unsigned long actualScan)
 			{
@@ -46,7 +53,7 @@ namespace FidelisDuino {
 				_sec = 0;
 				_weekDay = 0;
 			}
-			void SetTime(int hrs, int min, int sec, int weekDay) {
+			void SetTime(unsigned long hrs, unsigned long min, unsigned long sec, unsigned long weekDay) {
 				_isSet = true;
 				_hrs = hrs;
 				_min = min;
@@ -64,6 +71,11 @@ namespace FidelisDuino {
 				min = _min;
 				sec = _sec;
 				weekday = _weekDay;
+			}
+
+			bool ChangedToNewDay() {
+				_ChangedToNewDay.Loop(_hrs == 0);
+				return _ChangedToNewDay.OnDetection();
 			}
 			void Update() {
 				_actualScan = millis();
@@ -88,6 +100,7 @@ namespace FidelisDuino {
 				_UpperUnits = ExtractUpperUnit(_min, 60, _min);
 				if (_UpperUnits == 0) { return; }
 				_hrs = _hrs + _UpperUnits;
+
 
 				//Hours to week day:
 				_UpperUnits = ExtractUpperUnit(_hrs, 24, _hrs);

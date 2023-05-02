@@ -114,14 +114,17 @@ namespace FidelisDuino {
 				void TurnOn() {
 					TurnState = true;
 					clockCounter.Stop();
+					_OnChange(true);
 				}
 				void TurnOff() {
 					TurnState = false;
 					clockCounter.Stop();
+					_OnChange(false);
 				}
 				void TurnOn(int time) {
 					clockCounter.Count(time, 1000, 1);
 					clockCounter.Start();
+					_OnChange(true);
 				}
 				void Blink(int time) {
 					TurnState = false;
