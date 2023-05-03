@@ -31,7 +31,7 @@ C:\arduino_portable\arduino_esp8266\portable\sketchbook\libraries\FidelisDuino
 /*Now afetr 'defining the arduno lib or emulate it' we can call all files becouse the 'arduno lib/emulate' context already exists: */
 #include <iostream>
 /*Exemples:*/
-#include "ClockExemple.h"
+#include "VirtualDateTimeExemple.h"
 #include <functional>
 #include <thread>
 
@@ -55,6 +55,6 @@ int main()
 	setup();
 	std::cout << "Hello World at fisrt time!\n";
 	Serial.println("This has printed in 'Serial.println' format, like arduino do it!");
-	start(10, loop);
+	start(3000, loop);
 	while (true) {}
 }

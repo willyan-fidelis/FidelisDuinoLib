@@ -32,5 +32,8 @@
     <ClInclude Include="ClockExemple.h">
       <Filter>Arquivos de Cabeçalho\Exemplos</Filter>
     </ClInclude>
+    <ClInclude Include="VirtualDateTimeExemple.h">
+      <Filter>Arquivos de Cabeçalho\Exemplos</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

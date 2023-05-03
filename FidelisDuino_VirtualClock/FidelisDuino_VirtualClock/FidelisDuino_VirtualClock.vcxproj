@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClInclude Include="ClockExemple.h" />
     <ClInclude Include="FidelisDuino_VirtualClock.h" />
+    <ClInclude Include="VirtualDateTimeExemple.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
