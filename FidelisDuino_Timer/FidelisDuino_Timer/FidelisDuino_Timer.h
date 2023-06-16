@@ -307,5 +307,43 @@ namespace FidelisDuino {
 				tick = false;
 			}
 		};
+		class Chronometer
+		{
+		private:
+			unsigned long _lastScan = 0;
+			unsigned long _actualScan = 0;
+			unsigned long longDelta(unsigned long& lastScan, unsigned long actualScan)
+			{
+				unsigned long delta;
+
+				if (actualScan >= lastScan)//Normal condition:
+				{
+					delta = actualScan - lastScan;
+				}
+				else if (actualScan < lastScan) //Overflow condition:
+				{
+					delta = (4294967295 - lastScan) + lastScan;
+				}
+				lastScan = actualScan;
+				return delta;
+			}
+
+		public:
+			//'time' parametre is optional here, can be set at 'input', 'evaluate' and 'loop' methods
+			void Start()
+			{
+				_actualScan = millis();
+				_lastScan = _actualScan;
+				//Serial.println("Started: ");Serial.println(_lastScan);Serial.println(_actualScan);
+			}
+			long Stop()
+			{
+				_actualScan = millis();
+				long delta = longDelta(_lastScan, _actualScan);
+				//Serial.println("Stoped: ");Serial.println(_lastScan);Serial.println(_actualScan);
+				return delta;
+			}
+
+		};
 	}
 }

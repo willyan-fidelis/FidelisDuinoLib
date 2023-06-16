@@ -4,6 +4,7 @@
 
 FidelisDuino::Timer::Ticker ticker;
 
+FidelisDuino::Timer::Chronometer chrono;
 
 void setup() {
 
@@ -11,6 +12,12 @@ void setup() {
 
 void loop()
 {
+	//Exemplo rapido chrono --->
+	chrono.Start();
+	std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+	long result = chrono.Stop();
+	//Exemplo rapido chrono <---
+
 	ticker.Loop();
 
 	if (Serial.available()) {

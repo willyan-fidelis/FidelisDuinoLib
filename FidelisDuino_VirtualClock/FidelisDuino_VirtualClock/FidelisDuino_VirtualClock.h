@@ -134,7 +134,7 @@ namespace FidelisDuino {
 				return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
 			}
 
-			MonthYear years[20];
+			MonthYear years[50];
 			int lastDayOfMonth(int month, int year) {
 				int daysInMonth[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
 				if (month == 2 && isLeapYear(year)) {
@@ -145,9 +145,9 @@ namespace FidelisDuino {
 				}
 			}
 			void Fill() {
-				// preenche a estrutura para os próximos 20 anos
-				for (int i = 0; i < 20; i++) {
-					years[i].year = 2023 + i;
+				// preenche a estrutura para os prï¿½ximos 50 anos
+				for (int i = 0; i < 50; i++) {
+					years[i].year = 2000/*A partir do ano de 2020*/ + i;
 					for (int j = 0; j < 12; j++) {
 						if (j == 1 && isLeapYear(years[i].year)) {
 							years[i].lastDaysOfMonth[j] = 29;
@@ -158,8 +158,8 @@ namespace FidelisDuino {
 					}
 				}
 
-				// imprime os valores na porta serial para conferência
-				for (int i = 0; i < 20; i++) {
+				// imprime os valores na porta serial para conferï¿½ncia
+				for (int i = 0; i < 50; i++) {
 					Serial.print(years[i].year);
 					Serial.print(": ");
 					for (int j = 0; j < 12; j++) {
@@ -193,7 +193,7 @@ namespace FidelisDuino {
 					return "Segunda-feira";//Serial.println("Segunda-feira");
 					break;
 				case 3:
-					return "Terca-feira";//Serial.println("Terça-feira");
+					return "Terca-feira";//Serial.println("Terï¿½a-feira");
 					break;
 				case 4:
 					return "Quarta-feira";//Serial.println("Quarta-feira");
@@ -205,7 +205,7 @@ namespace FidelisDuino {
 					return "Sexta-feira";//Serial.println("Sexta-feira");
 					break;
 				case 0:
-					return "Sabado";//Serial.println("Sábado");
+					return "Sabado";//Serial.println("Sï¿½bado");
 					break;
 				}
 
@@ -233,7 +233,7 @@ namespace FidelisDuino {
 				year = _year;
 				month = _month;
 				day = _day;
-				//Forcamos pegar o dia sa semana conforme a data, pois é garantido realizando o calculo:
+				//Forcamos pegar o dia sa semana conforme a data, pois ï¿½ garantido realizando o calculo:
 				weekday = zeller(year, month, day);
 			}
 			String GetWeekDayName()
@@ -253,7 +253,7 @@ namespace FidelisDuino {
 						{
 							if (_day >= years[i].lastDaysOfMonth[_month-1])
 							{
-								//Se entramos aqui é pq estamos no ultimo dia do mes:
+								//Se entramos aqui ï¿½ pq estamos no ultimo dia do mes:
 								_day = 1;
 								_month++;
 								//Verificamos se finalizamos o ano:
