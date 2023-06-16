@@ -144,6 +144,7 @@ namespace FidelisDuino {
 				else {
 					return daysInMonth[month - 1];
 				}
+
 			}
 			void Fill() {
 				// preenche a estrutura para os pr�ximos 50 anos
