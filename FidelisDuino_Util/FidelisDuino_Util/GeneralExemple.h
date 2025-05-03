@@ -1,6 +1,7 @@
 #pragma once
 
-#include "PlcLib_EL_TON.h"
+#include "FidelisDuino_Util_Math.h"
+#include "FidelisDuino_Util_StringFormat.h"
 
 
 #if defined( ___DEBUG_ON___ )
@@ -10,18 +11,20 @@
 #endif
 
 bool test = false;
-PlcLib::EL_TON::EL_TON FirstTON;
-PlcLib::EL_TON::EL_TON_INSTANCE ton_instance;
-
+String toBeTested = "";
 void setup() {
-	FirstTON.Constructor(ton_instance);
+
 }
 
 void loop() {
-	FirstTON.Loop(test, 5000);
-	
-	if (FirstTON.Instance.Q)
+	test = FidelisDuino::Util::Math::isValidNumber(toBeTested);
+
+	if (Serial.available())
 	{
-		Serial.println("After sigal time-out!");
+		String data = Serial.readString();
+		Serial.println("New data arrived: " + data);
+		toBeTested = data;
 	}
+	uint8_t abc[6] = { 0xD,3,4,5,6,0x7A };
+	//Serial.println(FidelisDuino::Util::Text::Format::MACFormat(abc));
 }
