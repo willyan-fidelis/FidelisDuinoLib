@@ -4,7 +4,7 @@
 
 
 #if defined( ___DEBUG_ON___ )
-#include "../../FidelisDuino_EmulateArduinoCore.h"
+#include "..\..\FidelisDuinoLib\FidelisDuino_EmulateArduinoCore\FidelisDuino_EmulateArduinoCore\FidelisDuino_EmulateArduinoCore.h"
 #else
 #include "Arduino.h"
 #endif
@@ -18,10 +18,13 @@ void setup() {
 }
 
 void loop() {
+	//Call the SSW_PLC_SCAN loop:
+	PlcLib::SSW_PLC_SCAN::SSW_PLC_SCAN::Loop();
+	//Call the TON loop:
 	FirstTON.Loop(test, 5000);
-	
+
 	if (FirstTON.Instance.Q)
 	{
-		Serial.println("After sigal time-out!");
+		Serial.println("After signal time-out!");
 	}
 }

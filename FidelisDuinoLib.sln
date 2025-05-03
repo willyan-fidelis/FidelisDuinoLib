@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens
 		FidelisDuino_Timer.h = FidelisDuino_Timer.h
 		FidelisDuino_Util.h = FidelisDuino_Util.h
 		LICENSE = LICENSE
+		PlcLib_EL_TON.h = PlcLib_EL_TON.h
+		PlcLib_SSW_PLC_SCAN.h = PlcLib_SSW_PLC_SCAN.h
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -30,6 +32,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FidelisDuino_Util", "FidelisDuino_Util\FidelisDuino_Util\FidelisDuino_Util.vcxproj", "{32D1D32C-1622-4B5D-9CF7-6C7ADC17584E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FidelisDuino_VirtualClock", "FidelisDuino_VirtualClock\FidelisDuino_VirtualClock\FidelisDuino_VirtualClock.vcxproj", "{C1A35970-F45C-43F4-98F3-DA3179351D68}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlcLib_EL_TON", "PlcLib_EL_TON\PlcLib_EL_TON.vcxproj", "{F02570A7-E608-49A8-93DD-41A04499B5E1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlcLib_SSW_PLC_SCAN", "PlcLib_SSW_PLC_SCAN\PlcLib_SSW_PLC_SCAN.vcxproj", "{FE6D96D5-B4E5-439E-8605-3790DB02D7A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +101,22 @@ Global
 		{C1A35970-F45C-43F4-98F3-DA3179351D68}.Release|x64.Build.0 = Release|x64
 		{C1A35970-F45C-43F4-98F3-DA3179351D68}.Release|x86.ActiveCfg = Release|Win32
 		{C1A35970-F45C-43F4-98F3-DA3179351D68}.Release|x86.Build.0 = Release|Win32
+		{F02570A7-E608-49A8-93DD-41A04499B5E1}.Debug|x64.ActiveCfg = Debug|x64
+		{F02570A7-E608-49A8-93DD-41A04499B5E1}.Debug|x64.Build.0 = Debug|x64
+		{F02570A7-E608-49A8-93DD-41A04499B5E1}.Debug|x86.ActiveCfg = Debug|Win32
+		{F02570A7-E608-49A8-93DD-41A04499B5E1}.Debug|x86.Build.0 = Debug|Win32
+		{F02570A7-E608-49A8-93DD-41A04499B5E1}.Release|x64.ActiveCfg = Release|x64
+		{F02570A7-E608-49A8-93DD-41A04499B5E1}.Release|x64.Build.0 = Release|x64
+		{F02570A7-E608-49A8-93DD-41A04499B5E1}.Release|x86.ActiveCfg = Release|Win32
+		{F02570A7-E608-49A8-93DD-41A04499B5E1}.Release|x86.Build.0 = Release|Win32
+		{FE6D96D5-B4E5-439E-8605-3790DB02D7A3}.Debug|x64.ActiveCfg = Debug|x64
+		{FE6D96D5-B4E5-439E-8605-3790DB02D7A3}.Debug|x64.Build.0 = Debug|x64
+		{FE6D96D5-B4E5-439E-8605-3790DB02D7A3}.Debug|x86.ActiveCfg = Debug|Win32
+		{FE6D96D5-B4E5-439E-8605-3790DB02D7A3}.Debug|x86.Build.0 = Debug|Win32
+		{FE6D96D5-B4E5-439E-8605-3790DB02D7A3}.Release|x64.ActiveCfg = Release|x64
+		{FE6D96D5-B4E5-439E-8605-3790DB02D7A3}.Release|x64.Build.0 = Release|x64
+		{FE6D96D5-B4E5-439E-8605-3790DB02D7A3}.Release|x86.ActiveCfg = Release|Win32
+		{FE6D96D5-B4E5-439E-8605-3790DB02D7A3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
