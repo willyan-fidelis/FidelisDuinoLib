@@ -1,6 +1,6 @@
 #pragma once
 
-#include "PlcLib_EL_TON.h"
+#include "PlcLib_EL_TOF.h"
 
 
 #if defined( ___DEBUG_ON___ )
@@ -10,21 +10,21 @@
 #endif
 
 bool test = false;
-PlcLib::EL_TON::EL_TON FirstTON;
-PlcLib::EL_TON::EL_TON_INSTANCE* ton_instance;
+PlcLib::EL_TOF::EL_TOF FisrtStepCtrl;
+PlcLib::EL_TOF::EL_TOF_INSTANCE* tof_instance;
 
 void setup() {
-	//ton_instance = new PlcLib::EL_TON::EL_TON_INSTANCE();//não é necessario, alocação ja é feita dentro da função Constructor
-	FirstTON.Constructor(ton_instance);
+	//tof_instance = new PlcLib::EL_TOF::EL_TOF_INSTANCE();//não é necessario, alocação ja é feita dentro da função Constructor
+	FisrtStepCtrl.Constructor(tof_instance);
 }
 
 void loop() {
 	//Call the SSW_PLC_SCAN loop:
 	PlcLib::SSW_PLC_SCAN::SSW_PLC_SCAN::Loop();
-	//Call the TON loop:
-	FirstTON.Loop(test, 5000);
+	//Call the TOF loop:
+	FisrtStepCtrl.Loop(test,5000);
 
-	if (FirstTON.Instance->Q)
+	if (FisrtStepCtrl.Instance->Q)
 	{
 		Serial.println("After signal time-out!");
 	}

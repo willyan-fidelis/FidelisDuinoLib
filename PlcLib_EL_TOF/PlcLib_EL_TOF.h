@@ -21,54 +21,62 @@ This namespace have classes that help to handle with edge, like a button click a
 
 
 namespace PlcLib {
-	namespace EL_TON {
-		struct EL_TON_INSTANCE {
+	namespace EL_TOF {
+		struct EL_TOF_INSTANCE {
 			unsigned long PT;
 			unsigned long ET;
 			bool IN;
 			bool Q;
+			bool _STARTED;
 		};
-		class EL_TON
+		class EL_TOF
 		{
 		public:
-			EL_TON_INSTANCE* Instance;//Ponteiro(*) ao invez de referencia(&) porque referencia não permite sua copia, gerando probelams!
-			void Constructor(EL_TON_INSTANCE* _Instance) {
+			EL_TOF_INSTANCE* Instance;//Ponteiro(*) ao invez de referencia(&) porque referencia não permite sua copia, gerando probelams!
+			void Constructor(EL_TOF_INSTANCE* _Instance) {
 				if (_Instance == nullptr) {
-					_Instance = new EL_TON_INSTANCE();
+					_Instance = new EL_TOF_INSTANCE();
 				}
 				Instance = _Instance;
 			}
-			~EL_TON() {
+			~EL_TOF() {
 				if (Instance != nullptr) {
 					delete Instance;
 				}         // liberação no destrutor
 			}
-			void Loop(bool IN, unsigned long PT)
+			void Loop(bool IN,unsigned long PT)
 			{
-				
+
 				Instance->IN = IN;
 				Instance->PT = PT;
+				
 
 				if (Instance->IN)
 				{
-					if (Instance->ET >= Instance->PT)
-					{
-						Instance->Q = true;
-					}
-					else
-					{
-						Instance->Q = false;
-						Instance->ET = Instance->ET + PlcLib::SSW_PLC_SCAN::SSW_PLC_SCAN::SSW_PLC_SCAN_DB_Actual;
-					}
+					Instance->Q = true;
+					Instance->ET = 0;
+					Instance->_STARTED = true;
+					
 				}
 				else
 				{
-					Instance->Q = false;
-					Instance->ET = 0;
+					if (Instance->_STARTED)
+					{
+						if (Instance->ET >= Instance->PT)
+						{
+							Instance->Q = false;
+							Instance->_STARTED = false;
+						}
+						else
+						{
+							Instance->Q = true;
+							Instance->ET = Instance->ET + PlcLib::SSW_PLC_SCAN::SSW_PLC_SCAN::SSW_PLC_SCAN_DB_Actual;
+						}
+					}
 				}
-				
+
 			}
 		};
-        
+
 	}
 }
