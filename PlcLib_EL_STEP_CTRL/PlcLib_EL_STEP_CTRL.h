@@ -111,7 +111,7 @@ namespace PlcLib {
 						MicroStep.StActualStepRunningTime = 0;
 						//Step externo é uma interface externa(dataview,IHM) para ler e alterar o passo atual:
 						*InOutExternalStep = NextStep;
-						InOutExternalMicroStep = 0;
+						*InOutExternalMicroStep = 0;
 						MicroStep.NextStep = 0;
 						MicroStep.ActualStep = 0;
 
